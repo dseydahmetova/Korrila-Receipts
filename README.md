@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Korrila React Receipts
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* Korilla is a Korean barbecue taco truck that makes thousands of hungry customers happy every year.
 
-## Available Scripts
+*Their CEO is thinking of updating their short order tracking system using React.*
 
-In the project directory, you can run:
+*Build a prototype of this short order receipts tracker.*
 
-### `npm start`
+## Sample Receipts
+You'll be rendering some sample receipts:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+const receipts = [ { person: 'Karolin', order: { main: 'Burrito', protein: 'Organic Tofu', rice: 'Purple Rice', sauce: 'Green Crack', toppings: [ 'Baby Bok Choy', 'Cucumber Kimchi' ], drink: 'Korchata', cost: 22 }, paid: false }, { person: 'Mark', order: { main: 'Rice Bowl', protein: 'Ginger Soy Chix', rice: 'Sticky Rice', sauce: 'Korilla', toppings: [ 'Yuzu Pickled Sweet Pepper', 'Kale' ], drink: 'Korchata', cost: 19 }, paid: false }, { person: 'Matt', order: { main: 'Salad Bowl', protein: 'Organic Tofu', rice: 'none', sauce: "K'lla", toppings: [ 'Blue Potato Salad', 'Pico De Gallo', 'Red Kimchi' ], drink: 'Sparkling Blood Orange Soda', cost: 20 }, paid: true } ] 
+Add receipts to the state of the app:
+function App() {
+  let [receipts, setReceipts] = useState(receipts)
+  
+Make a Receipt component that renders the receipt's
+person
+order
+main
+protein
+rice
+sauce
+drink
+cost
+ 
+![image](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210914130327/100-Days-of-Code-with-GFG-Get-Committed-to-a-Challenge.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Render the toppings too. You'll need a couple more Receipt components so that you get a view like this (a little css provided for clarity, but not required)
 
-### `npm test`
+Conditionally Render the receipts if they have been paid or not
+Right now, all the receipts are not paid ( paid: false)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Set up a ternary operator to display the receipt if it has not been paid.
 
-### `npm run build`
+Then go into the receipt data and change the value to true and check that the receipt will not display
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Hungry For More
+Add a click event on the receipt that changes the value of paid from false to true. Once clicked the receipt should immediately disappear from the browser view#
